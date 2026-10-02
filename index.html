@@ -4,15 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <link id="bootstrap-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- Header / Hero Section -->
   <header>
     <div>
+      <nav class="header-nav" aria-label="Language selection">
+        <div class="header-toolbar">
+          <label class="language-picker" for="language-select">
+            <span>Language</span>
+            <select id="language-select" aria-label="Choose language">
+              <option value="en">English</option>
+              <option value="ar">العربية</option>
+            </select>
+          </label>
+        </div>
+      </nav>
+
       <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+      <img src="img/intel-header-logo.svg" alt="Intel logo for the sustainability timeline" />
       <!-- Main Heading -->
       <h1>
         Sustainability Through the Ages
@@ -27,14 +42,56 @@
     </div>
   </header>
 
-  <!-- Timeline Cards Section -->
-  <section>
+  <main id="main-content">
+    <section class="focus-section" aria-labelledby="focus-heading">
+      <div class="container">
+        <h2 id="focus-heading" class="visually-hidden">Key sustainability focus areas</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="feature-card h-100">
+              <h2 class="feature-title"><i class="bi bi-sun-fill" aria-hidden="true"></i> Renewable Energy</h2>
+              <p>
+                Intel continues to expand clean power sources across its facilities,
+                lowering carbon emissions while supporting high-performance manufacturing.
+              </p>
+              <button type="button" class="btn intel-btn" data-bs-toggle="modal" data-bs-target="#renewable-energy-modal">Learn More</button>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="feature-card h-100">
+              <h2 class="feature-title"><i class="bi bi-droplet-fill" aria-hidden="true"></i> Water Conservation</h2>
+              <p>
+                Smart water stewardship helps Intel improve efficiency, reduce strain on
+                local resources, and move toward more sustainable operations worldwide.
+              </p>
+              <button type="button" class="btn intel-btn" data-bs-toggle="modal" data-bs-target="#water-conservation-modal">Learn More</button>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="feature-card h-100">
+              <h2 class="feature-title"><i class="bi bi-recycle" aria-hidden="true"></i> Zero Waste</h2>
+              <p>
+                Sustainable manufacturing practices help Intel reduce waste, reuse materials,
+                and build a more circular supply chain for future innovation.
+              </p>
+              <button type="button" class="btn intel-btn" data-bs-toggle="modal" data-bs-target="#zero-waste-modal">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Cards Section -->
+    <section aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading" class="visually-hidden">Intel timeline milestones</h2>
 
     <!-- Card 1: 1968 -->
-    <div>
+    <div tabindex="0">
       <h2>1968</h2>
       <h3>Intel Founded</h3>
-      <img src="img/1.jpg" alt="Early technology representing Intel's founding" />
+      <img src="img/1.jpg" alt="Early technology and innovation representing Intel's founding in 1968" />
       <p>
         Robert Noyce and Gordon Moore rename the newly formed company 
         NM Electronics to Intel Corporation, laying the foundation for 
@@ -47,10 +104,10 @@
     </div>
 
     <!-- Card 2: 1971 -->
-    <div>
+    <div tabindex="0">
       <h2>1971</h2>
       <h3>First Microprocessor</h3>
-      <img src="img/2.jpg" alt="Close-up view of a computer processor" />
+      <img src="img/2.jpg" alt="Close-up view of a computer processor representing Intel's first microprocessor" />
       <p>
         Intel debuts the 4004, the world's first commercial microprocessor, 
         igniting the microprocessor revolution and propelling the future 
@@ -63,10 +120,10 @@
     </div>
 
     <!-- Card 3: 1978 -->
-    <div>
+    <div tabindex="0">
       <h2>1978</h2>
       <h3>8086 Processor</h3>
-      <img src="img/3.jpg" alt="Circuit board representing processor technology" />
+      <img src="img/3.jpg" alt="Circuit board and processor technology from Intel's 8086 era" />
       <p>
         Launch of the 8086 processor, establishing the x86 architecture 
         that drives countless PCs and servers in the modern era.
@@ -78,10 +135,10 @@
     </div>
 
     <!-- Card 4: 1985 -->
-    <div>
+    <div tabindex="0">
       <h2>1985</h2>
       <h3>386 Processor</h3>
-      <img src="img/4.jpg" alt="Computer hardware from the personal computing era" />
+      <img src="img/4.jpg" alt="Computer hardware and personal computing technology from the 386 processor era" />
       <p>
         Intel introduces the 386 processor with 32-bit architecture, 
         ushering in a new era of performance and multitasking for 
@@ -94,10 +151,10 @@
     </div>
 
     <!-- Card 5: 2006 -->
-    <div>
+    <div tabindex="0">
       <h2>2006</h2>
       <h3>Peak GHG Emissions</h3>
-      <img src="img/brecht-corbeel-Nvf1DFr1_d0-unsplash.jpg" alt="Industrial facility and infrastructure" />
+      <img src="img/brecht-corbeel-Nvf1DFr1_d0-unsplash.jpg" alt="Industrial facility representing Intel's peak greenhouse gas emissions period" />
       <p>
         This year marks Intel's highest annual greenhouse gas emissions 
         for operations. Over subsequent years, Intel invests heavily in 
@@ -111,10 +168,10 @@
     </div>
 
     <!-- Card 6: 2020 -->
-    <div>
+    <div tabindex="0">
       <h2>2020</h2>
       <h3>RISE Strategy</h3>
-      <img src="img/rubaitul-azad-3WhPfoOX888-unsplash.jpg" alt="Green leaves representing sustainable growth" />
+      <img src="img/rubaitul-azad-3WhPfoOX888-unsplash.jpg" alt="Green leaves and sustainable growth symbolizing the RISE strategy" />
       <p>
         Intel launches its RISE (Responsible, Inclusive, Sustainable, 
         Enabling) strategy and 2030 goals, aiming to drive industry-wide 
@@ -127,10 +184,10 @@
     </div>
 
     <!-- Card 7: 2022 -->
-    <div>
+    <div tabindex="0">
       <h2>2022</h2>
       <h3>Net-Zero By 2040</h3>
-      <img src="img/brecht-corbeel-gC6fEKUXk7o-unsplash.jpg" alt="People collaborating in a modern space" />
+      <img src="img/brecht-corbeel-gC6fEKUXk7o-unsplash.jpg" alt="People collaborating in a modern workspace representing sustainability collaboration" />
       <p>
         Intel announces its commitment to achieve net-zero greenhouse 
         gas emissions (Scope 1 and 2) across its global operations 
@@ -143,10 +200,10 @@
     </div>
 
     <!-- Card 8: 2023 -->
-    <div>
+    <div tabindex="0">
       <h2>2023</h2>
       <h3>Renewable Electricity</h3>
-      <img src="img/andrey-matveev-CfvjEZvKYbM-unsplash.jpg" alt="Solar panels generating renewable electricity" />
+      <img src="img/andrey-matveev-CfvjEZvKYbM-unsplash.jpg" alt="Solar panels generating renewable electricity for Intel operations" />
       <p>
         The company achieves 99% renewable electricity usage worldwide, 
         helping to drastically lower carbon emissions and driving progress 
@@ -159,10 +216,10 @@
     </div>
 
     <!-- Card 9: 2024 -->
-    <div>
+    <div tabindex="0">
       <h2>2024</h2>
       <h3>Sustainability Summit</h3>
-      <img src="img/martin-katler-7wCxlBfGMdk-unsplash.jpg" alt="Modern sustainable architecture" />
+      <img src="img/martin-katler-7wCxlBfGMdk-unsplash.jpg" alt="Modern sustainable architecture representing the sustainability summit" />
       <p>
         Intel hosts its first Sustainability Summit, uniting suppliers, 
         government officials, and industry leaders to collaborate on 
@@ -174,6 +231,182 @@
       </p>
     </div>
   </section>
+    </main>
+
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <section class="newsletter-section" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-box">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-5">
+            <p class="newsletter-kicker">Stay Connected</p>
+            <h2 id="newsletter-heading">Join our sustainability newsletter</h2>
+          </div>
+          <div class="col-12 col-lg-7">
+            <form>
+              <div class="row g-3 align-items-end">
+                <div class="col-12 col-md-5">
+                  <label for="newsletter-name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="newsletter-name"
+                    name="name"
+                    aria-describedby="newsletter-help"
+                  />
+                </div>
+
+                <div class="col-12 col-md-5">
+                  <label for="newsletter-email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="newsletter-email"
+                    name="email"
+                    required
+                    aria-describedby="newsletter-help"
+                  />
+                </div>
+
+                <div class="col-12 col-md-2 d-grid">
+                  <button type="submit" class="btn intel-btn newsletter-btn">Submit</button>
+                </div>
+              </div>
+              <div id="newsletter-help" class="form-text">Get updates on innovation, climate action, and sustainable progress.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-12 col-md-6">
+          <p class="mb-0">&copy; 2026 Intel Sustainability Timeline. All rights reserved.</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <nav aria-label="Footer navigation" class="footer-nav">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="renewable-energy-modal" tabindex="-1" aria-labelledby="renewable-energy-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="renewable-energy-title">Renewable Energy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Intel is investing in renewable energy to power semiconductor manufacturing,
+            data centers, and research facilities with cleaner electricity sources that lower carbon emissions.
+          </p>
+          <p>
+            These efforts help reduce environmental impact while supporting the company’s long-term climate goals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="water-conservation-modal" tabindex="-1" aria-labelledby="water-conservation-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="water-conservation-title">Water Conservation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Water stewardship is a major part of sustainable operations, especially in advanced manufacturing.
+            Intel focuses on reducing consumption, improving efficiency, and protecting local water resources.
+          </p>
+          <p>
+            These programs help support communities while making production more resilient and responsible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="zero-waste-modal" tabindex="-1" aria-labelledby="zero-waste-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="zero-waste-title">Zero Waste</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Zero-waste initiatives focus on reducing material waste, improving recycling, and reusing resources across the manufacturing lifecycle.
+          </p>
+          <p>
+            By designing more circular processes, Intel can lower landfill waste while creating more sustainable innovation systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('section:not(.focus-section) > div').forEach(function(card) {
+      card.setAttribute('tabindex', '0');
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const bootstrapCss = document.getElementById('bootstrap-css');
+    const languageSelect = document.getElementById('language-select');
+    const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+
+    function applyLanguage(languageCode) {
+      const isRtl = rtlLanguages.includes(languageCode);
+      document.documentElement.lang = languageCode;
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+
+      if (bootstrapCss) {
+        bootstrapCss.href = isRtl
+          ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css'
+          : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+      }
+
+      if (languageSelect) {
+        languageSelect.value = languageCode === 'ar' ? 'ar' : 'en';
+      }
+    }
+
+    function detectInitialLanguage() {
+      const browserLanguage = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      const matchedLanguage = browserLanguage.startsWith('ar')
+        ? 'ar'
+        : browserLanguage.startsWith('he')
+          ? 'he'
+          : browserLanguage.startsWith('fa')
+            ? 'fa'
+            : browserLanguage.startsWith('ur')
+              ? 'ur'
+              : 'en';
+
+      applyLanguage(matchedLanguage);
+    }
+
+    if (languageSelect) {
+      languageSelect.addEventListener('change', function () {
+        const selectedLanguage = this.value === 'ar' ? 'ar' : 'en';
+        applyLanguage(selectedLanguage);
+      });
+    }
+
+    detectInitialLanguage();
+  </script>
 </body>
 </html>

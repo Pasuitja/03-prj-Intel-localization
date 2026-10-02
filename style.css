@@ -8,6 +8,41 @@ body {
   background: #f4f6f8;
   color: #1b1b1b;
   overflow-x: hidden;
+  text-align: start;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: #ffffff;
+  color: #0b2f4d;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 header {
@@ -16,12 +51,51 @@ header {
   background-position: center;
   background-size: cover;
   color: #ffffff;
-  padding: 48px 24px 56px;
+  padding-block: 48px 56px;
+  padding-inline: 24px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
 }
 
 header > div {
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.header-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+
+.language-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+}
+
+.language-picker span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.language-picker select {
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0b2f4d;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  margin-inline-start: 8px;
 }
 
 header img {
@@ -79,6 +153,11 @@ section > div:hover {
   border-color: #0068B5;
 }
 
+section > div:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 4px;
+}
+
 section > div img {
   display: block;
   width: 100%;
@@ -104,6 +183,13 @@ section h3 {
   line-height: 1.2;
 }
 
+.newsletter-box h2 {
+  margin: 0;
+  color: #0b2f4d;
+  font-size: clamp(1.7rem, 2vw, 2.3rem);
+  line-height: 1.2;
+}
+
 section p {
   margin: 0;
   color: #334155;
@@ -119,7 +205,7 @@ section .detail {
   margin-top: 0;
   color: #0b2f4d;
   background: #edf6ff;
-  border-left: 3px solid #0068B5;
+  border-inline-start: 3px solid #0068B5;
   border-radius: 10px;
   padding: 0 12px;
   transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease, padding 0.25s ease;
@@ -136,17 +222,180 @@ section > div:focus-within .detail {
 
 body > p:last-of-type {
   margin: 0;
-  padding: 0 24px 32px;
+  padding-block: 0 32px;
+  padding-inline: 24px;
   color: #1d3b52;
   font-size: 0.95rem;
   text-align: center;
+}
+
+.newsletter-section {
+  background: #f4f8fc;
+  padding: 20px 0 32px;
+}
+
+.newsletter-box {
+  background: #ffffff;
+  border: 1px solid #dfeaf5;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 104, 181, 0.08);
+  padding: 28px 24px;
+}
+
+.newsletter-kicker {
+  margin: 0 0 8px;
+  color: #0068B5;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.newsletter-box h3 {
+  margin: 0;
+  color: #0b2f4d;
+  font-size: clamp(1.7rem, 2vw, 2.3rem);
+  line-height: 1.2;
+}
+
+.newsletter-box .form-label {
+  color: #0b2f4d;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.newsletter-box .form-control {
+  border: 1px solid #bfd5eb;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.newsletter-box .form-control:focus {
+  border-color: #0068B5;
+  box-shadow: 0 0 0 0.2rem rgba(0, 104, 181, 0.15);
+}
+
+.newsletter-box .form-text {
+  color: #4a5d72;
+  margin-top: 10px;
+}
+
+.newsletter-btn {
+  width: 100%;
+  min-height: 48px;
+}
+
+.site-footer {
+  background: #0b2f4d;
+  color: #eaf4ff;
+  padding: 20px 0;
+}
+
+.site-footer p,
+.footer-nav a {
+  color: #eaf4ff;
+  text-decoration: none;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+html[dir="rtl"] .header-toolbar,
+html[dir="rtl"] .footer-nav {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] body,
+html[dir="rtl"] .newsletter-box,
+html[dir="rtl"] .feature-card,
+html[dir="rtl"] .site-footer,
+html[dir="rtl"] .site-footer p,
+html[dir="rtl"] .feature-title,
+html[dir="rtl"] .newsletter-box h3,
+html[dir="rtl"] .newsletter-box .form-label,
+html[dir="rtl"] .newsletter-box .form-text,
+html[dir="rtl"] .newsletter-kicker,
+html[dir="rtl"] .focus-section,
+html[dir="rtl"] header p,
+html[dir="rtl"] header h1,
+html[dir="rtl"] section p,
+html[dir="rtl"] section h3,
+html[dir="rtl"] section h2,
+html[dir="rtl"] .detail {
+  text-align: start;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: #cfe9ff;
+  text-decoration: underline;
+}
+
+.focus-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef5fb 100%);
+  padding: 32px 0 18px;
+}
+
+.focus-section .container {
+  max-width: 1100px;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #dfeaf5;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 104, 181, 0.08);
+  padding: 28px 22px;
+}
+
+.feature-title {
+  margin: 0 0 16px;
+  color: #0068B5;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.feature-title i {
+  margin-inline-end: 10px;
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+
+.feature-card p {
+  margin: 0 0 20px;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.intel-btn {
+  background-color: #0068B5;
+  border-color: #0068B5;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.intel-btn:hover,
+.intel-btn:focus,
+.intel-btn:active {
+  background-color: #00559b;
+  border-color: #00559b;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
   section {
     display: block;
     overflow-x: visible;
-    padding: 20px 16px 24px;
+    padding-block: 20px 24px;
+    padding-inline: 16px;
   }
 
   section > div {
@@ -160,13 +409,15 @@ body > p:last-of-type {
   }
 
   body > p:last-of-type {
-    padding: 0 16px 28px;
+    padding-block: 0 28px;
+    padding-inline: 16px;
   }
 }
 
 @media (max-width: 640px) {
   header {
-    padding: 36px 20px 42px;
+    padding-block: 36px 42px;
+    padding-inline: 20px;
   }
 
   header img {
@@ -181,8 +432,7 @@ body > p:last-of-type {
 
 @media (max-width: 375px) {
   section {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-inline: 12px;
   }
 
   section > div {
