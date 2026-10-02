@@ -13,7 +13,7 @@ body {
 
 .skip-link {
   position: absolute;
-  left: 1rem;
+  inset-inline-start: 1rem;
   top: -3rem;
   background: #ffffff;
   color: #0b2f4d;
@@ -62,7 +62,7 @@ header {
 
 header > div {
   max-width: 1100px;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
 .header-toolbar {
@@ -102,11 +102,12 @@ header img {
   display: block;
   width: 180px;
   height: auto;
-  margin-bottom: 28px;
+  margin-block-end: 28px;
 }
 
 header h1 {
-  margin: 0 0 18px;
+  margin: 0;
+  margin-block-end: 18px;
   color: #ffffff;
   font-size: clamp(2.3rem, 4vw, 4.2rem);
   line-height: 1.1;
@@ -122,18 +123,21 @@ header p {
   line-height: 1.7;
 }
 
-section {
+.timeline-section {
+  padding: 28px 24px 36px;
+  background: linear-gradient(180deg, #eef5fb 0%, #f8fafc 100%);
+}
+
+.timeline {
   display: flex;
   flex-wrap: nowrap;
   gap: 20px;
   overflow-x: auto;
-  padding: 28px 24px 36px;
-  background: linear-gradient(180deg, #eef5fb 0%, #f8fafc 100%);
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
-section > div {
+.timeline-card {
   flex: 0 0 280px;
   min-width: 0;
   background: #ffffff;
@@ -147,18 +151,18 @@ section > div {
   overflow: hidden;
 }
 
-section > div:hover {
+.timeline-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 14px 28px rgba(0, 104, 181, 0.14);
   border-color: #0068B5;
 }
 
-section > div:focus-visible {
+.timeline-card:focus-visible {
   outline: 3px solid #ffbf47;
   outline-offset: 4px;
 }
 
-section > div img {
+.timeline-card img {
   display: block;
   width: 100%;
   height: 150px;
@@ -167,7 +171,7 @@ section > div img {
   object-fit: cover;
 }
 
-section h2 {
+.timeline-card h2 {
   margin: 0 0 8px;
   color: #0068B5;
   font-size: 1.05rem;
@@ -176,7 +180,7 @@ section h2 {
   text-transform: uppercase;
 }
 
-section h3 {
+.timeline-card h3 {
   margin: 0 0 14px;
   color: #0b2f4d;
   font-size: 1.55rem;
@@ -190,7 +194,7 @@ section h3 {
   line-height: 1.2;
 }
 
-section p {
+.timeline-card p {
   margin: 0;
   color: #334155;
   line-height: 1.6;
@@ -198,7 +202,7 @@ section p {
   word-wrap: break-word;
 }
 
-section .detail {
+.timeline-card .detail {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -212,18 +216,17 @@ section .detail {
   word-wrap: break-word;
 }
 
-section > div:hover .detail,
-section > div:focus-within .detail {
+.timeline-card:hover .detail,
+.timeline-card:focus-within .detail {
   max-height: 180px;
   opacity: 1;
   margin-top: 14px;
   padding: 12px;
 }
 
-body > p:last-of-type {
+.timeline-section > p {
   margin: 0;
-  padding-block: 0 32px;
-  padding-inline: 24px;
+  padding: 0 0 20px;
   color: #1d3b52;
   font-size: 0.95rem;
   text-align: center;
@@ -304,6 +307,7 @@ body > p:last-of-type {
   flex-wrap: wrap;
 }
 
+html[dir="rtl"] .header-nav,
 html[dir="rtl"] .header-toolbar,
 html[dir="rtl"] .footer-nav {
   justify-content: flex-start;
@@ -322,10 +326,10 @@ html[dir="rtl"] .newsletter-kicker,
 html[dir="rtl"] .focus-section,
 html[dir="rtl"] header p,
 html[dir="rtl"] header h1,
-html[dir="rtl"] section p,
-html[dir="rtl"] section h3,
-html[dir="rtl"] section h2,
-html[dir="rtl"] .detail {
+html[dir="rtl"] .timeline-card p,
+html[dir="rtl"] .timeline-card h3,
+html[dir="rtl"] .timeline-card h2,
+html[dir="rtl"] .timeline-card .detail {
   text-align: start;
 }
 
@@ -344,7 +348,16 @@ html[dir="rtl"] .detail {
   max-width: 1100px;
 }
 
+.focus-heading {
+  margin: 0 0 24px;
+  color: #0b2f4d;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .feature-card {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border: 1px solid #dfeaf5;
   border-radius: 18px;
@@ -353,7 +366,8 @@ html[dir="rtl"] .detail {
 }
 
 .feature-title {
-  margin: 0 0 16px;
+  margin: 0;
+  margin-block-end: 16px;
   color: #0068B5;
   font-size: 1.5rem;
   font-weight: 700;
@@ -366,7 +380,9 @@ html[dir="rtl"] .detail {
 }
 
 .feature-card p {
-  margin: 0 0 20px;
+  margin: 0;
+  margin-block-end: 20px;
+  flex-grow: 1;
   color: #334155;
   line-height: 1.7;
 }
@@ -391,26 +407,29 @@ html[dir="rtl"] .detail {
 }
 
 @media (max-width: 768px) {
-  section {
+  .timeline-section {
     display: block;
-    overflow-x: visible;
     padding-block: 20px 24px;
     padding-inline: 16px;
   }
 
-  section > div {
+  .timeline {
+    display: block;
+    overflow-x: visible;
+  }
+
+  .timeline-card {
     flex: none;
     width: min(100%, 420px);
     margin: 0 auto 18px;
   }
 
-  section > div img {
+  .timeline-card img {
     height: 180px;
   }
 
-  body > p:last-of-type {
-    padding-block: 0 28px;
-    padding-inline: 16px;
+  .timeline-section > p {
+    padding-bottom: 18px;
   }
 }
 
@@ -422,7 +441,7 @@ html[dir="rtl"] .detail {
 
   header img {
     width: 140px;
-    margin-bottom: 20px;
+    margin-block-end: 20px;
   }
 
   header p {
@@ -431,16 +450,16 @@ html[dir="rtl"] .detail {
 }
 
 @media (max-width: 375px) {
-  section {
+  .timeline-section {
     padding-inline: 12px;
   }
 
-  section > div {
+  .timeline-card {
     width: 100%;
     padding: 18px 16px 18px;
   }
 
-  section > div img {
+  .timeline-card img {
     height: 160px;
   }
 
@@ -448,7 +467,7 @@ html[dir="rtl"] .detail {
     font-size: clamp(2rem, 9vw, 2.6rem);
   }
 
-  section h3 {
+  .timeline-card h3 {
     font-size: 1.3rem;
   }
 }
